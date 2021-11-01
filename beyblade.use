@@ -1,0 +1,85 @@
+model Beyblade
+
+-- classes
+
+class Beyblade
+attributes
+  name : String
+end
+
+class MetalFightBeyblade < Beyblade
+end
+
+class MetalFightBeybladePart
+attributes
+  name : String
+  brand : String
+end
+
+class MetalFaceBolt < MetalFightBeybladePart
+end
+
+class MetalEnergyRing < MetalFightBeybladePart
+end
+
+class MetalFusionWheel < MetalFightBeybladePart
+end
+
+class MetalSpinTrack < MetalFightBeybladePart
+end
+
+class MetalPerformanceTip < MetalFightBeybladePart
+end
+
+class MetalStoneFace < MetalFightBeybladePart
+end
+
+class MetalWarriorWheel < MetalFightBeybladePart
+end
+
+class MetalElementWheel < MetalFightBeybladePart
+end
+
+-- associations
+
+association MetalFightBeybladeMetalFaceBolt between
+  MetalFightBeyblade[*]
+  MetalFaceBolt[0..1]
+end
+
+association MetalFightBeybladeMetalEnergyRing between
+  MetalFightBeyblade[*]
+  MetalEnergyRing[0..1]
+end
+
+association MetalFightBeybladeMetalFusionWheel between
+  MetalFightBeyblade[*]
+  MetalFusionWheel[0..1]
+end
+
+association MetalFightBeybladeMetalSpinTrack between
+  MetalFightBeyblade[*]
+  MetalSpinTrack[0..1]
+end
+
+association MetalFightBeybladeMetalPerformanceTip between
+  MetalFightBeyblade[*]
+  MetalPerformanceTip[0..1]
+end
+
+association MetalFightBeybladeMetalStoneFace between
+  MetalFightBeyblade[*]
+  MetalStoneFace[0..1]
+end
+
+association MetalFightBeybladeMetalWarriorWheel between
+  MetalFightBeyblade[*]
+  MetalWarriorWheel[0..1]
+end
+
+association MetalFightBeybladeMetalElementWheel between
+  MetalFightBeyblade[*]
+  MetalElementWheel[0..1]
+end
+
+-- OCL constraints
