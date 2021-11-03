@@ -10,61 +10,97 @@ end
 class MetalFightBeyblade < Beyblade
 end
 
-class MetalFightBeybladePart
+class BeybladePart
 attributes
   name : String
   brand : String
 end
 
-class MetalFaceBolt < MetalFightBeybladePart
+-- Metal Fight Parts
+
+class MetalFace < BeybladePart
 end
 
-class MetalEnergyRing < MetalFightBeybladePart
+class MetalWheel < BeybladePart
 end
 
-class MetalFusionWheel < MetalFightBeybladePart
+class MetalTrack < BeybladePart
 end
 
-class MetalSpinTrack < MetalFightBeybladePart
+class MetalBottom < BeybladePart
 end
 
-class MetalPerformanceTip < MetalFightBeybladePart
+class MetalClearWheel < BeybladePart
 end
 
-class MetalStoneFace < MetalFightBeybladePart
+class MetalMetalWheel < BeybladePart
 end
 
-class MetalWarriorWheel < MetalFightBeybladePart
+class Metal4DClearWheel < BeybladePart
 end
 
-class MetalElementWheel < MetalFightBeybladePart
+class Metal4DMetalWheel < BeybladePart
+end
+
+class Metal4DBottom < BeybladePart
+end
+
+class MetalStoneFace < BeybladePart
+end
+
+class MetalChromeWheel < BeybladePart
+end
+
+class MetalCrystalWheel < BeybladePart
 end
 
 -- associations
 
-association MetalFightBeybladeMetalFaceBolt between
+-- Metal Fight
+
+association MetalFightBeybladeMetalFace between
   MetalFightBeyblade[*]
-  MetalFaceBolt[0..1]
+  MetalFace[0..1]
 end
 
-association MetalFightBeybladeMetalEnergyRing between
+association MetalFightBeybladeMetalWheel between
   MetalFightBeyblade[*]
-  MetalEnergyRing[0..1]
+  MetalWheel[0..1]
 end
 
-association MetalFightBeybladeMetalFusionWheel between
+association MetalFightBeybladeMetalTrack between
   MetalFightBeyblade[*]
-  MetalFusionWheel[0..1]
+  MetalTrack[0..1]
 end
 
-association MetalFightBeybladeMetalSpinTrack between
+association MetalFightBeybladeMetalBottom between
   MetalFightBeyblade[*]
-  MetalSpinTrack[0..1]
+  MetalBottom[0..1]
 end
 
-association MetalFightBeybladeMetalPerformanceTip between
+association MetalFightBeybladeMetalClearWheel between
   MetalFightBeyblade[*]
-  MetalPerformanceTip[0..1]
+  MetalClearWheel[0..1]
+end
+
+association MetalFightBeybladeMetalMetalWheel between
+  MetalFightBeyblade[*]
+  MetalMetalWheel[0..1]
+end
+
+association MetalFightBeybladeMetal4DClearWheel between
+  MetalFightBeyblade[*]
+  Metal4DClearWheel[0..1]
+end
+
+association MetalFightBeybladeMetal4DMetalWheel between
+  MetalFightBeyblade[*]
+  Metal4DMetalWheel[0..1]
+end
+
+association MetalFightBeybladeMetal4DBottom between
+  MetalFightBeyblade[*]
+  Metal4DBottom[0..1]
 end
 
 association MetalFightBeybladeMetalStoneFace between
@@ -72,14 +108,14 @@ association MetalFightBeybladeMetalStoneFace between
   MetalStoneFace[0..1]
 end
 
-association MetalFightBeybladeMetalWarriorWheel between
+association MetalFightBeybladeMetalChromeWheel between
   MetalFightBeyblade[*]
-  MetalWarriorWheel[0..1]
+  MetalChromeWheel[0..1]
 end
 
-association MetalFightBeybladeMetalElementWheel between
+association MetalFightBeybladeMetalCrystalWheel between
   MetalFightBeyblade[*]
-  MetalElementWheel[0..1]
+  MetalCrystalWheel[0..1]
 end
 
 -- OCL constraints
