@@ -110,7 +110,7 @@ end
 
 association MetalFightBeybladeMetalChromeWheel between
   MetalFightBeyblade[*]
-  MetalChromeWheel[0..1]
+  MetalChromeWheel[0..2]
 end
 
 association MetalFightBeybladeMetalCrystalWheel between
@@ -119,3 +119,27 @@ association MetalFightBeybladeMetalCrystalWheel between
 end
 
 -- OCL constraints
+
+constraints
+
+-- Metal Fight
+
+-- Must have either MetalTrack and MetalBottom or Metal4DBottom
+context MetalFightBeyblade
+inv: self.metalTrack -> notEmpty() and self.metalBottom -> notEmpty() or self.metal4DBottom -> notEmpty()
+
+-- Can't have Metal4DBottom if MetalTrack or MetalBottom exist
+context MetalFightBeyblade
+inv: self.metalTrack -> notEmpty() or self.metalBottom -> notEmpty() implies self.metal4DBottom -> isEmpty()
+
+-- Can't have MetalTrack or MetalBottom if Metal4DBottom exist
+context MetalFightBeyblade
+inv: self.metal4DBottom -> notEmpty() implies self.metalTrack -> isEmpty() and self.metalBottom -> isEmpty() 
+
+-- Must have either MetalFace or MetalStoneFace, never both
+context MetalFightBeyblade
+inv: self.metalFace -> isEmpty() implies self.metalStoneFace -> notEmpty() and self.metalStoneFace -> isEmpty() implies self.metalFace -> notEmpty() and self.metalFace -> notEmpty() implies self.metalStoneFace -> isEmpty() and self.metalStoneFace -> notEmpty() implies self.metalFace -> isEmpty()
+
+-- Can't have MetalChromeWheel or MetalCrystalWheel if MetalFace exists
+context MetalFightBeyblade
+inv: self.metalFace -> notEmpty() implies self.metalChromeWheel -> isEmpty() and self.metalCrystalWheel -> isEmpty()
